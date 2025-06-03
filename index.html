@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P.I.R.A.N.H.A.</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <div class="container">
+    <!--- UI SECTION -->
+    <div class="mobile-ui">
+      <div class="top-bar">
+        <div class="logo" onclick="location.href='index.html'"></div>
+        <div class="dropdown">
+            <button class="dropdown-button">☰</button>
+            <div class="dropdown-content">
+            <button onclick="location.href='profile.html'">My PIRANHA</button>
+            <button onclick="location.href='base.html'">Charging Base</button>
+            <button onclick="location.href='schedule.html'">Schedule</button>
+            <button onclick="location.href='pool.html'">My Pool</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="mobile-panel" style="display: flex;">
+        <div class="connection-status" id="connection-status">🔄 Checking connection...</div>
+        <div id="robot-status-container" class="status">
+          Status: <span id="status-robot" class="in-base">In Base</span>
+        </div>
+        <button class="button" onclick="returnToBase()">Back 2 Base</button>
+        <div class="mode-control-bubble">
+          <div class="mode-section">
+            <div class="mode-label">Mode</div>
+            <div class="mode-selector">
+              <button class="mode-option active" onclick="selectMode(0)">Deep Clean</button>
+              <button class="mode-option" onclick="selectMode(1)">Quick Clean</button>
+              <button class="mode-option" onclick="selectMode(2)">Walls Only</button>
+            </div>
+          </div>
+          <button class="button start-button" onclick="startCleaning()">Start</button>
+        </div>
+        <button class="button stop-button" onclick="stopCleaning()">Stop</button>
+      </div>
+    </div>
+
+    <div class="map-section">
+      <canvas id="mapa" width="800" height="600"></canvas>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    requireLogin();
+  </script>
+
+</body>
+</html>

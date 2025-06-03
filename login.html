@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PIRANHA - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/main.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins";
+      background: url('images/background.png');
+      background-size: auto;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-wrapper {
+      background: rgba(255, 255, 255, 0.801); /* slightly see-through */
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login-logo {
+      width: 100px;
+      height: 100px;
+      background: url('images/Logo_Color_NoSlogan.png') center/cover no-repeat;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      color: #2f4b7c;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4a70b3;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #665191;
+    }
+
+    .footer-text {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    @media (max-width: 500px) {
+      .login-wrapper {
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-logo"></div>
+    <h2>Welcome</h2>
+    <form onsubmit="login(event)">
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit">Log In</button>
+    </form>
+    <div class="footer-text">You know the drill. Enter stuff. Click button. Dive into the wonderful world of PIRANHA</div>
+  </div>
+
+<script>
+  function login(event) {
+    if (event) event.preventDefault(); // So the form doesn't try to reload the page
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+      alert("Don't leave any empty field, your soul is already empty enough as it is.");
+      return;
+    }
+
+    localStorage.setItem("loggedInUser", username);
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>
