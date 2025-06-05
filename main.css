@@ -413,7 +413,7 @@
 
     .map-section {
       flex: 2;
-      background-color: #dbefff;
+      background-color: #c0dff9;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -422,7 +422,7 @@
 
     canvas {
       border: 2px solid #007BFF;
-      background-color: #ffffff;
+      background-color: #8a89895d;
     }
 
     .mobile-panel {

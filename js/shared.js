@@ -65,27 +65,6 @@ function comando(endpoint) {
     });
 }
 
-function drawMap() {
-  const canvas = document.getElementById("mapa");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "green";
-
-  const pontos = [
-    { x: 50, y: 50 },
-    { x: 100, y: 100 },
-    { x: 150, y: 150 },
-    { x: 200, y: 200 },
-    { x: 250, y: 250 }
-  ];
-
-  pontos.forEach(p => ctx.fillRect(p.x, p.y, 10, 10));
-
-  ctx.fillStyle = "blue";
-  ctx.fillRect(10, 10, 20, 20);
-}
 
 function drawMiniMap() {
   const canvas = document.getElementById("mini-mapa");
@@ -95,13 +74,6 @@ function drawMiniMap() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "green";
 
-  const pontos = [
-    { x: 10, y: 10 },
-    { x: 30, y: 30 },
-    { x: 50, y: 50 },
-    { x: 70, y: 70 },
-    { x: 90, y: 90 }
-  ];
 
   pontos.forEach(p => ctx.fillRect(p.x, p.y, 5, 5));
 

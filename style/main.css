@@ -393,7 +393,7 @@
     .mini-map-container {
       margin-top: 20px;
       padding: 10px;
-      background: white;
+      background: rgba(196, 223, 245, 0.797);
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 136, 255, 0.1);
       display: flex;
@@ -401,15 +401,14 @@
       align-items: center;
     }
     #mini-mapa {
-      border: 1px solid #007BFF;
-      background-color: #f9f9f9;
+      border: 0px solid #007BFF;
+      background-color: rgba(136, 133, 133, 0.393);
     }
 
 
 
     .map-section {
       flex: 2;
-      background-color: #dbefff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -418,7 +417,7 @@
 
     canvas {
       border: 2px solid #007BFF;
-      background-color: #ffffff;
+      background-color: rgba(136, 133, 133, 0.393);
     }
 
     .mobile-panel {
@@ -448,3 +447,23 @@
         display: none;
       }
     }
+
+.battery-bar {
+  height: 20px;
+  background-color: lightgray;
+  margin: 10px 0;
+  width: 100%;
+  position: relative;
+}
+
+.battery-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  background-color: limegreen;
+  width: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.5s ease;
+}

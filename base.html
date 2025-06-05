@@ -14,7 +14,7 @@
     <!-- UI Section -->
     <div class="mobile-ui">
       <div class="top-bar">
-        <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;"></div>
+        <div class="logo" onclick="switchPanel('dashboard')" style="cursor: pointer;"></div>
         <div class="dropdown">
           <button class="dropdown-button">☰</button>
           <div class="dropdown-content">
@@ -26,18 +26,21 @@
         </div>
       </div>
 
-      <div class="mobile-panel" id="panel-pool" style="display: flex;">
-        <h2>My Pool</h2>
-        <div class="mini-map-container">
-        <canvas id="mini-mapa" width="200" height="150"></canvas>
+      <div class="mobile-panel" id="panel-base">
+        <h2>Charging Base</h2>
+        <div class="battery-card">
+            <h3>Base Battery</h3>
+            <div id="base-battery" class="battery-bar"></div>
+            <span id="base-battery-label">--%</span>
         </div>
-        <p>W: 10m L: 5m H: 2m</p>
-        <p>MAP</p>
-        <p>1.0.0-beta (unstable and proud)</p>
-        <button class="button" onclick="alert('You cannot update firmware. It updates you.')">Check for Updates</button>
+        <div class="battery-card">
+            <h3>Robot Battery</h3>
+            <div id="robot-battery" class="battery-bar"></div>
+            <span id="robot-battery-label">--%</span>
+        </div>
       </div>
-    </div>
 
+    </div>  
     <div class="map-section">
       <canvas id="mapa" width="800" height="600"></canvas>
     </div>
@@ -45,11 +48,7 @@
 
   <script src="js/shared.js"></script>
   <script src="js/dashboard.js"></script>
+  <script src="js/base.js"></script>
   <script src="js/mapping.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        drawMiniMap(); // bring the tiny map to life!
-    });
-  </script>
 </body>
 </html>
