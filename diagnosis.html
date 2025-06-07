@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My PIRANHA - Profile</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="mobile-ui">
+      <div class="top-bar">
+        <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;"></div>
+        <div class="dropdown">
+          <button class="dropdown-button">☰</button>
+          <div class="dropdown-content">
+            <button onclick="location.href='profile.html'">My PIRANHA</button>
+            <button onclick="location.href='base.html'">Charging Base</button>
+            <button onclick="location.href='schedule.html'">Schedule</button>
+            <button onclick="location.href='pool.html'">My Pool</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-panel" id="panel-profile" style="display: flex;">
+        <div class="profile-content"> <!-- 👈 new wrapper -->
+           <h2>Diagnosis</h2>
+        <p>You're diagnosed with autism :3</p>
+       </div> 
+        <button class="logout-footer" onclick="logout()">Log Out</button>
+      </div>
+    </div>
+
+    <div class="map-section">
+      <canvas id="mapa" width="800" height="600"></canvas>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+  <script>
+     // Dropdown menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownBtn = document.querySelector('.dropdown-button');
+      const dropdownContent = document.querySelector('.dropdown-content');
+      dropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+      });
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function() {
+        dropdownContent.style.display = 'none';
+      });
+    });
+
+    const username = getLoggedInUser();
+    if (!username) window.location.href = "login.html";
+
+    const nameEl = document.getElementById('profileName');
+
+    const storedName = localStorage.getItem(`name_${username}`);
+    nameEl.textContent = storedName || username;
+
+    nameEl.addEventListener('blur', () => {
+        localStorage.setItem(`name_${username}`, nameEl.textContent);
+    });
+
+    function logoutUser() {
+        logout();
+    }
+  </script>
+
+
+</body>
+</html>

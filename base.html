@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PIRANHA</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style/main.css">
@@ -26,19 +26,20 @@
         </div>
       </div>
 
-      <div class="mobile-panel" id="panel-base">
+      <div class="mobile-panel" id="panel-base" style="display:block;">
         <h2>Charging Base</h2>
         <div class="battery-card">
-            <h3>Base Battery</h3>
-            <div id="base-battery" class="battery-bar"></div>
-            <span id="base-battery-label">--%</span>
+        <h3>Base Battery</h3>
+        <div id="base-battery" class="battery-bar" style="width: 80%; background: linear-gradient(to right, #4caf50 50%, #e0e0e0 50%);"></div>
+        <span id="base-battery-label">50%</span>
         </div>
         <div class="battery-card">
-            <h3>Robot Battery</h3>
-            <div id="robot-battery" class="battery-bar"></div>
-            <span id="robot-battery-label">--%</span>
+        <h3>Robot Battery</h3>
+        <div id="robot-battery" class="battery-bar" style="width: 80%; background: linear-gradient(to right, #4caf50 50%, #e0e0e0 50%);"></div>
+        <span id="robot-battery-label">50%</span>
         </div>
       </div>
+        <button class="logout-footer" onclick="logout()">Log Out</button>
 
     </div>  
     <div class="map-section">

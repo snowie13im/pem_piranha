@@ -38,10 +38,10 @@
           </div>
 
           <ul class="profile-options">
-            <button onclick="switchPanel('history')">Cleaning History</button>
+            <button onclick="location.href='history.html'">Cleaning History</button>
             <button onclick="location.href='pool.html'">My Pool</button>
-            <button onclick="switchPanel('diagnosis')">Diagnosis</button>
-            <button onclick="switchPanel('settings')">Settings</button>
+            <button onclick="location.href='diagnosis.html'">Diagnosis</button>
+            <button onclick="location.href='settings.html'">Settings</button>
           </ul>
         </div>  
         <button class="logout-footer" onclick="logout()">Log Out</button>
@@ -58,23 +58,53 @@
   <script src="js/auth.js"></script>
   <script src="js/profile.js"></script>
   <script>
+    // Dropdown menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownBtn = document.querySelector('.dropdown-button');
+      const dropdownContent = document.querySelector('.dropdown-content');
+      dropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+      });
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function() {
+        dropdownContent.style.display = 'none';
+      });
+    });
+
     const username = getLoggedInUser();
     if (!username) window.location.href = "login.html";
 
-    const nameEl = document.getElementById('profileName');
-
+    // Fix: use correct element for name display
+    const nameLabel = document.getElementById('profile-name-label');
+    const nameInput = document.getElementById('profile-name-input');
     const storedName = localStorage.getItem(`name_${username}`);
-    nameEl.textContent = storedName || username;
+    nameLabel.textContent = storedName || username;
+    nameInput.value = storedName || username;
 
-    nameEl.addEventListener('blur', () => {
-        localStorage.setItem(`name_${username}`, nameEl.textContent);
+    function toggleNameEdit() {
+      nameLabel.style.display = 'none';
+      nameInput.style.display = 'inline-block';
+      nameInput.focus();
+    }
+
+    function handleNameKey(event) {
+      if (event.key === 'Enter' || event.key === 'Escape') {
+        nameInput.blur();
+      }
+    }
+
+    nameInput.addEventListener('blur', () => {
+      localStorage.setItem(`name_${username}`, nameInput.value);
+      nameLabel.textContent = nameInput.value;
+      nameInput.style.display = 'none';
+      nameLabel.style.display = 'inline-block';
     });
 
     function logoutUser() {
-        logout();
+      logout();
     }
   </script>
-
 
 </body>
 </html>
