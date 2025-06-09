@@ -29,12 +29,13 @@
       <div class="mobile-panel" id="panel-pool" style="display: flex;">
         <h2>My Pool</h2>
         <div class="mini-map-container">
-        <canvas id="mini-mapa" width="200" height="150"></canvas>
+        <video id="mini-video" width="200" height="150">
+          <source src="images/pool.mp4" type="video/mp4">
+        </video>
         </div>
         <p>1.0.0-beta</p>
         <p>       </p>
-
-        <button class="button" onclick="alert('You cannot update firmware. It updates you.')">Check for Updates</button>
+        <button class="button" onclick="const v=document.getElementById('mini-video');v.load();v.play();">Check for Updates</button>
       </div>
     </div>
 
